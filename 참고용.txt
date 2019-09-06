@@ -1,0 +1,4 @@
+게시글 목록에서 하나 누르면 현재 있는 router/:postID 로 이동
+게시글 컴포넌트에서 url 쿼리에서 id만 따와서 setPage 함수로 get
+ex) 
+        apiUrl + `/api/v2/leaderboard/${this.$route.params.leaderboardId}`,

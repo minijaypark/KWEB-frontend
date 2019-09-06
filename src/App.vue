@@ -1,18 +1,18 @@
 <template>
   <a-layout id="components-layout-demo-top" class="layout">
     <a-layout-header>
-      <div class="logo"><span>KWEB</span></div>
+      <div class="logo"><span></span></div>
       <a-menu
         theme="dark"
         mode="horizontal"
-        :defaultSelectedKeys="['Home']"
+        :selectedKeys="[$route.path]"
         :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="Home"
+        <a-menu-item key="/"
           ><router-link to="/">Home</router-link></a-menu-item
         >
-        <a-menu-item key="About"
-          ><router-link to="/about">About</router-link></a-menu-item
+        <a-menu-item key="/articles"
+          ><router-link to="/articles">Articles</router-link></a-menu-item
         >
       </a-menu>
     </a-layout-header>
@@ -26,7 +26,17 @@
     </a-layout-footer>
   </a-layout>
 </template>
-
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'app',
+  data() {
+    return {
+      currentMenu: '',
+    };
+  },
+});
+</script>
 <style>
 .layout {
   height: 100vh;

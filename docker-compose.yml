@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  web-front:
+    image: galadriel02:5000/llab-yna:latest
+    labels:
+      - traefik.frontend.rule=Host:llab-yna,llab-yna.korea.ncsoft.corp
+      - traefik.port=80
+      - traefik.docker.network=web
+    networks:
+      - web
+networks:
+  web:
+    external: true
