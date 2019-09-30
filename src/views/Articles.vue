@@ -7,7 +7,7 @@
           style="height: 100%"
           :selectedKeys="[$route.path]"
         >
-          <a-sub-menu key="공지사항">
+          <a-sub-menu key="notification">
             <span slot="title"><a-icon type="notification" />공지사항</span>
             <a-menu-item key="1"
               ><router-link to="/articles/notification"
@@ -20,7 +20,7 @@
               ></a-menu-item
             >
           </a-sub-menu>
-          <a-sub-menu key="준회원">
+          <a-sub-menu key="juns">
             <span slot="title"><a-icon type="user" />준회원</span>
             <a-menu-item key="3"
               ><router-link to="/articles/juns"
@@ -33,20 +33,23 @@
               ></a-menu-item
             >
           </a-sub-menu>
-          <a-sub-menu key="정회원">
+          <a-sub-menu key="jungs">
             <span slot="title"><a-icon type="user" />정회원</span>
             <a-menu-item key="5"
               ><router-link to="/articles/jungs"
-                >스터디 자료</router-link
-              ></a-menu-item
-            >
-            <a-menu-item key="6"
-              ><router-link to="/articles/report"
-                >스터디 보고</router-link
+                >프로젝트</router-link
               ></a-menu-item
             >
           </a-sub-menu>
-          <a-sub-menu key="외부인">
+          <a-sub-menu key="ob">
+            <span slot="title"><a-icon type="user" />명예회원</span>
+            <a-menu-item key="6"
+              ><router-link to="/articles/ob"
+                >자유게시판</router-link
+              ></a-menu-item
+            >
+          </a-sub-menu>
+          <a-sub-menu key="outsiders">
             <span slot="title"><a-icon type="laptop" />외부인</span>
             <a-menu-item key="7">option 7</a-menu-item>
             <a-menu-item key="8">option 8</a-menu-item>

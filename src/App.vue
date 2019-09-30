@@ -14,6 +14,9 @@
         <a-menu-item key="/articles"
           ><router-link to="/articles">Articles</router-link></a-menu-item
         >
+        <a-button :style="{ position: 'absolute', right: '15px', top: '15px' }"
+          ><router-link to="/login">Sign in</router-link></a-button
+        >
       </a-menu>
     </a-layout-header>
     <a-layout-content class="content">

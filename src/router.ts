@@ -14,6 +14,12 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () =>
+        import(/* webpackChunkName: "articles" */ './views/Login.vue'),
+    },
+    {
       path: '/articles',
       name: 'articles',
       component: () =>
@@ -24,43 +30,43 @@ export default new Router({
           name: 'notification',
           component: () =>
             import(
-              /* webpackChunkName: "notification" */ './components/Notification.vue'
+              /* webpackChunkName: "notification" */ './components/PostList.vue'
             ),
         },
-        {
-          path: 'schedule',
-          name: 'schedule',
-          component: () =>
-            import(
-              /* webpackChunkName: "schedule" */ './components/Schedule.vue'
-            ),
-        },
-        {
-          path: 'juns',
-          name: 'juns',
-          component: () =>
-            import(/* webpackChunkName: "juns" */ './components/Juns.vue'),
-        },
-        {
-          path: 'submission',
-          name: 'submission',
-          component: () =>
-            import(
-              /* webpackChunkName: "submission" */ './components/Submission.vue'
-            ),
-        },
-        {
-          path: 'jungs',
-          name: 'jungs',
-          component: () =>
-            import(/* webpackChunkName: "jungs" */ './components/Jungs.vue'),
-        },
-        {
-          path: 'report',
-          name: 'report',
-          component: () =>
-            import(/* webpackChunkName: "report" */ './components/Report.vue'),
-        },
+        // {
+        //   path: 'schedule',
+        //   name: 'schedule',
+        //   component: () =>
+        //     import(
+        //       /* webpackChunkName: "schedule" */ './components/Schedule.vue'
+        //     ),
+        // },
+        // {
+        //   path: 'juns',
+        //   name: 'juns',
+        //   component: () =>
+        //     import(/* webpackChunkName: "juns" */ './components/Juns.vue'),
+        // },
+        // {
+        //   path: 'submission',
+        //   name: 'submission',
+        //   component: () =>
+        //     import(
+        //       /* webpackChunkName: "submission" */ './components/Submission.vue'
+        //     ),
+        // },
+        // {
+        //   path: 'jungs',
+        //   name: 'jungs',
+        //   component: () =>
+        //     import(/* webpackChunkName: "jungs" */ './components/Jungs.vue'),
+        // },
+        // {
+        //   path: 'report',
+        //   name: 'report',
+        //   component: () =>
+        //     import(/* webpackChunkName: "report" */ './components/Report.vue'),
+        // },
       ],
     },
     // {
