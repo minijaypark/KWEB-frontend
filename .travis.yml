@@ -4,7 +4,7 @@ node_js:
 
 matrix:
     include:
-        - name: Test Ubuntu18.04 LTS + gcc
+        - name: Test Ubuntu18.04 LTS
           os: linux
           dist: bionic
           sudo: required
