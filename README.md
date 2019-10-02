@@ -1,5 +1,5 @@
 # frontend
-[![Build Status](https://travis-ci.org/minijaypark/frontend.svg?branch=master)](https://travis-ci.org/minijaypar/frontend)
+[![Build Status](https://travis-ci.org/minijaypark/frontend.svg?branch=master)](https://travis-ci.org/minijaypark/frontend)
 
 ## Project setup
 ```
