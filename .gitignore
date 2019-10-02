@@ -22,3 +22,5 @@ yarn-error.log*
 
 명세서.txt
 참고용.txt
+docker-compose.yml
+Dockerfile
