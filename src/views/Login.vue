@@ -1,9 +1,10 @@
-<template
-  ><div
+<template>
+  <div
     :style="{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      height: 'calc(100vh - 200px)',
     }"
   >
     <a-form :form="form" @submit="handleSubmit" class="user-inputs">
@@ -50,16 +51,17 @@
         >
           Remember me
         </a-checkbox>
-        <a class="login-form-forgot" href="">
-          Forgot password
-        </a>
         <a-button type="primary" html-type="submit" class="login-form-button">
           Log in
         </a-button>
-        Or
-        <a href="">
-          register now!
-        </a>
+        <div>
+          <router-link to="#">
+            비밀번호 찾기
+          </router-link>
+          <router-link to="/signup">
+            회원가입
+          </router-link>
+        </div>
       </a-form-item>
     </a-form>
   </div>
@@ -89,10 +91,7 @@ export default Vue.extend({
 </script>
 <style scoped>
 .user-inputs {
-  max-width: 300px;
-}
-.login-form-forgot {
-  float: right;
+  width: 400px;
 }
 .login-form-button {
   width: 100%;

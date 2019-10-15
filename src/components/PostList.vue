@@ -1,77 +1,73 @@
 <template>
   <a-table :columns="columns" :dataSource="data">
-    <a slot="name" slot-scope="text" href="javascript:;">{{ text }}</a>
-    <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
-    <span slot="tags" slot-scope="tags">
-      <a-tag v-for="tag in tags" color="blue" :key="tag">{{ tag }}</a-tag>
-    </span>
+    <span slot="postTitle" slot-scope="text, record"
+      ><router-link :to="{ name: 'post', params: { postId: record.key } }"
+        >{{ text }}
+      </router-link></span
+    >
     <span slot="action" slot-scope="text, record">
-      <a href="javascript:;">Invite 一 {{ record.name }}</a>
+      <router-link
+        :to="{ name: 'post-modify', params: { postId: record.key } }"
+      >
+        수정
+      </router-link>
       <a-divider type="vertical" />
-      <a href="javascript:;">Delete</a>
-      <a-divider type="vertical" />
-      <a href="javascript:;" class="ant-dropdown-link">
-        More actions <a-icon type="down" />
-      </a>
+      <a-button @click="deletePost">삭제</a-button>
     </span>
   </a-table>
 </template>
-<script>
+
+<script lang="ts">
+import Vue from 'vue';
+
 const columns = [
   {
+    title: '작성자',
     dataIndex: 'name',
     key: 'name',
-    slots: { title: 'customTitle' },
-    scopedSlots: { customRender: 'name' },
+    width: '10%',
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: '제목',
+    dataIndex: 'title',
+    key: 'postTitle',
+    scopedSlots: { customRender: 'postTitle' },
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    title: '게시일',
+    dataIndex: 'date',
+    key: 'date',
+    width: '15%',
   },
   {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    scopedSlots: { customRender: 'tags' },
-  },
-  {
-    title: 'Action',
-    key: 'action',
+    dataIndex: 'action',
     scopedSlots: { customRender: 'action' },
+    width: '10%',
   },
 ];
 
 const data = [
   {
     key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
+    title: '안녕하세요',
+    name: '김무명',
+    date: '2019-01-01',
   },
   {
     key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
+    title: '케이웹입니다',
+    name: '이무명',
+    date: '2019-01-01',
   },
   {
     key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
+    title: '자유게시판',
+    name: '박무명',
+    date: '2019-01-01',
   },
 ];
 
-export default {
+export default Vue.extend({
   name: 'post-list',
   data() {
     return {
@@ -79,5 +75,11 @@ export default {
       columns,
     };
   },
-};
+  methods: {
+    deletePost() {
+      // TODO
+      console.log('HI');
+    },
+  },
+});
 </script>

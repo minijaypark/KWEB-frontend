@@ -17,68 +17,52 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () =>
-        import(/* webpackChunkName: "articles" */ './views/Login.vue'),
+        import(/* webpackChunkName: "login" */ './views/Login.vue'),
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: () =>
+        import(/* webpackChunkName: "signup" */ './views/SignUp.vue'),
     },
     {
       path: '/articles',
-      name: 'articles',
       component: () =>
         import(/* webpackChunkName: "articles" */ './views/Articles.vue'),
       children: [
         {
-          path: 'notification',
-          name: 'notification',
+          path: ':bulletinName',
           component: () =>
             import(
-              /* webpackChunkName: "notification" */ './components/PostList.vue'
+              /* webpackChunkName: "emptyRouterView" */ './views/EmptyRouterView.vue'
             ),
+          children: [
+            {
+              path: '',
+              component: () =>
+                import(
+                  /* webpackChunkName: "postList" */ './components/PostList.vue'
+                ),
+            },
+            {
+              path: ':postId',
+              name: 'post',
+              component: () =>
+                import(
+                  /* webpackChunkName: "postView" */ './components/PostView.vue'
+                ),
+            },
+            {
+              path: ':postId/modify',
+              name: 'post-modify',
+              component: () =>
+                import(
+                  /* webpackChunkName: "postView" */ './components/PostModify.vue'
+                ),
+            },
+          ],
         },
-        // {
-        //   path: 'schedule',
-        //   name: 'schedule',
-        //   component: () =>
-        //     import(
-        //       /* webpackChunkName: "schedule" */ './components/Schedule.vue'
-        //     ),
-        // },
-        // {
-        //   path: 'juns',
-        //   name: 'juns',
-        //   component: () =>
-        //     import(/* webpackChunkName: "juns" */ './components/Juns.vue'),
-        // },
-        // {
-        //   path: 'submission',
-        //   name: 'submission',
-        //   component: () =>
-        //     import(
-        //       /* webpackChunkName: "submission" */ './components/Submission.vue'
-        //     ),
-        // },
-        // {
-        //   path: 'jungs',
-        //   name: 'jungs',
-        //   component: () =>
-        //     import(/* webpackChunkName: "jungs" */ './components/Jungs.vue'),
-        // },
-        // {
-        //   path: 'report',
-        //   name: 'report',
-        //   component: () =>
-        //     import(/* webpackChunkName: "report" */ './components/Report.vue'),
-        // },
       ],
     },
-    // {
-    //   path: '/leaderboard/:leaderboardId',
-    //   name: 'leaderboard-detail',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (articles.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(
-    //       /* webpackChunkName: "leaderboard-detail" */ './views/LeaderboardDetail.vue'
-    //     ),
-    // },
   ],
 });
