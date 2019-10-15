@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.org/minijaypark/kweb-frontend.svg?branch=master)](https://travis-ci.org/minijaypark/kweb-frontend)
 
+## 프로젝트 도커 이미지 빌드
+docker image build -t kweb .
+
+## 프로젝트 도커 컨테이너 실행
+docker continer run -p 80:8080 -d kweb
+
 ## Project setup
 
 ```
